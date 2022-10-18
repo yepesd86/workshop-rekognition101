@@ -21,6 +21,7 @@ app.get("/",(request,response)=>{
 });
 
 app.post("/validateFace",async (request,response)=>{
+    try{
    AWS.config.update({region:'us-east-1'});
    const rekognition = new AWS.Rekognition();
    let caraPermitida = fs.readFileSync(__dirname +'/foto_aceptada/foto_rc_2021.jfif');
@@ -35,13 +36,16 @@ app.post("/validateFace",async (request,response)=>{
    }
     const rekognitionResult = await rekognition.compareFaces(params).promise();
     let rightMatch = false;
-    rekognitionResult.FaceMatches.forEach(data => {
+    console.log(rekognitionResult);
+    if(rekognitionResult && rekognitionResult.FaceMatches && rekognitionResult.FaceMatches.length){
+        rekognitionResult.FaceMatches.forEach(data => {
          let position   = data.Face.BoundingBox
          let similarity = data.Similarity
          if(similarity > 99){
              rightMatch = true;
          }
        });
+    }
        if(rightMatch){
              response.setHeader('Content-Type', 'application/json');
               response.status(200)
@@ -53,6 +57,13 @@ app.post("/validateFace",async (request,response)=>{
               response.status(200)
               response.end(JSON.stringify({ validated: false, palabraClave: "NO TE LA DIGO" }));
        }
+    }
+    catch(err){
+      
+         response.status(500);
+            response.end(JSON.stringify({ validated: false, palabraClave: "Error: Probablemente no hay caras en la foto" }));
+
+    }
    });
 
 app.listen(8080,()=>{
