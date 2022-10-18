@@ -84,5 +84,5 @@ Start the server
     
 ## Feedback
 
-If you have any feedback, please reach out to me at ricardoceci@gmail.com
+If you have any feedback, please reach out to me at @ricardoceci
 
