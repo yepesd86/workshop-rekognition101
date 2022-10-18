@@ -46,6 +46,42 @@ Start the server
 ```
 
 
+## Serverless Photo Organizer
+
+* Create S3 Bucket with the following folders: *shared_photos/* and *my_photos/* write down the Bucket Name / Crear un Bucket de S3 con las siguientes carpetas: *shared_photos/* y *my_photos/*
+* Create a NodeJS Lambda Function / Crear una función Lambda Node.js
+* Add an S3 triggerer to the lambda function (Bucket: created in 1, prefix: shared_photos/ and ACK) **Please NOTE the prefix, if you don't add this prefix then you'll probably incur in additional costs**
+* Agregar un triggerer de S3 a la función lambda (Bucket: el creado en el paso 1, prefix: shared_photos y aceptar los terminos) **No olvidar agregar el prefix, si no se agrega pueden incurrir en costos adicionales**
+* Agregar los siguientes permisos al rol que ejecuta la función Lambda: AWSRekognitionReadOnlyAccess y
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:GetObjectAttributes"
+            ],
+            "Resource": "arn:aws:s3:::[NOBMREDELBUCKET]/*"
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:PutObjectAcl"
+            ],
+            "Resource": "arn:aws:s3:::[NOBMREDELBUCKET]/my_photos/*"
+        }
+    ]
+}
+```
+
+
+    
 ## Feedback
 
 If you have any feedback, please reach out to me at ricardoceci@gmail.com
