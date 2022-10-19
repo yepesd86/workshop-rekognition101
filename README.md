@@ -74,7 +74,7 @@ Start the server
                 "s3:PutObject",
                 "s3:PutObjectAcl"
             ],
-            "Resource": "arn:aws:s3:::[NOBMREDELBUCKET]/my_photos/*"
+            "Resource": "arn:aws:s3:::[NOBMREDELBUCKET]/photos-output/*"
         }
     ]
 }
