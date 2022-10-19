@@ -4,6 +4,7 @@ const fileupload = require("express-fileupload");
 
 const AWS  = require("aws-sdk");
 const fs = require("fs");
+const myPhoto = '[NOMBRE_DE_TU_FOTO]';
 
  const config = new AWS.Config({
      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -24,7 +25,7 @@ app.post("/validateFace",async (request,response)=>{
     try{
    AWS.config.update({region:'us-east-1'});
    const rekognition = new AWS.Rekognition();
-   let caraPermitida = fs.readFileSync(__dirname +'/foto_aceptada/foto_rc_2021.jfif');
+   let caraPermitida = fs.readFileSync(__dirname +'/foto_aceptada/'+myPhoto);
    const params = {
        "SourceImage":{
            "Bytes": request.files.image.data
