@@ -39,6 +39,18 @@ Install dependencies
   npm install
 ```
 
+Upload to foto_aceptada a photo of your face.
+
+```bash
+  foto_aceptada/
+```
+
+Edit app.js Line 7 and put your file name.
+
+```javascript
+  const myPhoto = '[YOUR_PHOTO_FILE]';
+```
+
 Start the server
 
 ```bash

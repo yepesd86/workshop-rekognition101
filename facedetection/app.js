@@ -4,7 +4,7 @@ const fileupload = require("express-fileupload");
 
 const AWS  = require("aws-sdk");
 const fs = require("fs");
-const myPhoto = '[NOMBRE_DE_TU_FOTO]';
+const myPhoto = '[YOUR_PHOTO]';
 
  const config = new AWS.Config({
      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
