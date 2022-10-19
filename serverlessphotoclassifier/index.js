@@ -1,8 +1,8 @@
 const AWS  = require("aws-sdk");
 AWS.config.update({ region: process.env.AWS_REGION })
 var rekognition = new AWS.Rekognition();
-var oldPrefix = 'fotos-input/';
-var newPrefix = 'fotos-output/';
+var oldPrefix = 'photos-input/';
+var newPrefix = 'photos-output/';
 const sourceBucket = '[YOUR_BUCKET_NAME}';
 const myPhoto = '[YOUR_PHOTO_FILE]';
 
