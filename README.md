@@ -31,6 +31,7 @@ Go to the project directory
 
 ```bash
   cd workshop-rekognition101
+  cd facedetection
 ```
 
 Install dependencies
@@ -62,8 +63,8 @@ Start the server
 
 * Create S3 Bucket with the following folders: *photos-input/* and *photos-output/* write down the Bucket Name / Crear un Bucket de S3 con las siguientes carpetas: *photos-input/* y *photos-output/*
 * Create a NodeJS Lambda Function / Crear una función Lambda Node.js
-* Add an S3 triggerer to the lambda function (Bucket: created in 1, prefix: shared_photos/ and ACK) **Please NOTE the prefix, if you don't add this prefix then you'll probably incur in additional costs**
-* Agregar un triggerer de S3 a la función lambda (Bucket: el creado en el paso 1, prefix: shared_photos y aceptar los terminos) **No olvidar agregar el prefix, si no se agrega pueden incurrir en costos adicionales**
+* Add an S3 triggerer to the lambda function (Bucket: created in 1, prefix: photos-input/ and ACK) **Please NOTE the prefix, if you don't add this prefix then you'll probably incur in additional costs**
+* Agregar un triggerer de S3 a la función lambda (Bucket: el creado en el paso 1, prefix: photos-input y aceptar los terminos) **No olvidar agregar el prefix, si no se agrega pueden incurrir en costos adicionales**
 * Agregar los siguientes permisos al rol que ejecuta la función Lambda: AWSRekognitionReadOnlyAccess y
 
 ```json
