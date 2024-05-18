@@ -24,7 +24,7 @@ Workshop a dictarse en la 10ma edición de Nerdearla
 Clonar el proyecto
 
 ```bash
-  git clone https://github.com/ricardoceci/workshop-rekognition101
+  git clone https://github.com/yepesd86/workshop-rekognition101
 ```
 
 Go to the project directory
